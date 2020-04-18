@@ -1,0 +1,83 @@
+[
+{
+  "model":"classifieds.Locale",
+  "pk":"1",
+  "fields": {
+    "abbreviation":"sfo",
+    "country":"US",
+    "locale_name":"SF bay area",
+    "latitude":37.5,
+    "longitude":-122.25,
+    "region":"CA",
+    "timezone":"America/Los_Angeles"
+  }
+},
+{
+  "model":"classifieds.Locale",
+  "pk":"2",
+  "fields": {
+    "abbreviation":"sea",
+    "country":"US",
+    "locale_name":"seattle-tacoma",
+    "latitude":47.6064,
+    "longitude":-122.331001,
+    "region":"WA",
+    "timezone":"America/Los_Angeles"
+  }
+},
+{
+  "model":"classifieds.Locale",
+  "pk":"3",
+  "fields": {
+    "abbreviation":"nyc",
+    "country":"US",
+    "locale_name":"new york city",
+    "latitude":40.714199,
+    "longitude":-74.006401,
+    "region":"NY",
+    "timezone":"America/New_York"
+  }
+},
+{
+  "model":"classifieds.Locale",
+  "pk":"4",
+  "fields":
+    {
+      "abbreviation":"bos",
+      "country":"US",
+      "locale_name":"boston",
+      "latitude":42.358299,
+      "longitude":-71.060303,
+      "region":"MA",
+      "timezone":"America/New_York"
+    }
+},
+{
+  "model":"classifieds.Locale",
+  "pk":"5",
+  "fields":
+      {
+        "abbreviation":"lax",
+        "country":"US",
+        "locale_name":"los angeles",
+        "latitude":34.0522,
+        "longitude":-118.242996,
+        "region":"CA",
+        "timezone":"America/Los_Angeles"
+        }
+  },
+{
+  "model":"classifieds.Locale",
+  "pk":"6",
+  "fields":
+      {
+        "abbreviation":"sdo",
+        "country":"US",
+        "locale_name":"san diego",
+        "latitude":32.715302,
+        "longitude":-117.155998,
+        "region":"CA",
+        "timezone":"America/Los_Angeles"
+      }
+}
+]

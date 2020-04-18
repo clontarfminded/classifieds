@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadlist Index: {{ locale_name }}</title>{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'classifieds/style.css' %}">
+  </head>
+  <body>
+    <header>
+      <h2>{{ locale }}</h2>
+    </header>
+    <nav>
+      <img id="kropotkin" src="{% static "classifieds/images/kropotkin.jpg" %}" alt="the face of peter kropotkin done in a woodblock style"></img>
+      <h1><a href="{% url 'classifieds:index' %}">Breadlist</a></h1>
+      <p><a href="{% url 'classifieds:create_classified' %}">create a classified</a></p>
+      <ul>{% for p in page_list %}
+        <li id={{ p }}><a href="{% url 'classifieds:page' p.page_name %}">{{ p }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+    <main>
+      {% for s in section_list %}
+      <section class={{ s }}>
+        <h3 class="section"><a href="{% url 'classifieds:section' locale.id s %}">{{ s }}</a></h3>
+        <ul>
+          {% for ss in subsection_list %}
+          <li class="subsection"><a href="{% url 'classifieds:subsection' locale.id s ss %}">{{ ss }}</a></li>{% endfor %}
+        </ul>
+      </section>{% endfor %}
+    </main>
+    <aside>
+      <ul>{% for r in region_list %}
+        <li class="sidebar-locale"><a href="{% url 'classifieds:region' r.id %}">{{ r }}</a></li>{% endfor %}
+      </ul>
+    </aside>
+    <footer>
+      <ul>
+        <li><a href="{% url 'classifieds:index' %}">breadlist</a></li>
+        <li><a href="{% url 'classifieds:region' region.id %}">breadlist/{{ region }}</a></li>
+        <li><a href="{% url 'classifieds:province' province.id %}">breadlist/{{ region }}/{{ province }}</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

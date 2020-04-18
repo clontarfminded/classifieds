@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadlist: Create a Classified</title>{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'classifieds/style.css' %}">
+  </head>
+  <body>
+    <header>
+      <h2>Create a Classified</h2>
+    </header>
+    <nav>
+      <img id="kropotkin" src="{% static "classifieds/images/kropotkin.jpg" %}" alt="the face of peter kropotkin done in a woodblock style"></img>
+      <h1><a href="{% url 'classifieds:index' %}">Breadlist</a></h1>
+      <ul>{% for p in page_list %}
+        <li id={{ p }}><a href="{% url 'classifieds:page' p.page_name %}">{{ p }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+    <main>
+      <form action="/create-classified/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+      </form>
+    </main>
+    <aside>
+      <ul>{% for r in region_list %}
+        <li class="sidebar-locale"><a href="{% url 'classifieds:region' r %}">{{ r }}</a></li>{% endfor %}
+      </ul>
+    </aside>
+    <footer>
+      <ul>
+        <li><a href="{% url 'classifieds:index' %}">back to index</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ classified }}</title>{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'classifieds/style.css' %}">
+  </head>
+  <body>
+    <header>
+      <h1>{{ classified }}</h1>
+    </header>
+    <nav>
+      <img id="kropotkin" src="{% static "classifieds/images/kropotkin.jpg" %}" alt="the face of peter kropotkin done in a woodblock style"></img>
+      <h1><a href="{% url 'classifieds:index' %}">Breadlist</a></h1>
+      <p><a href="{% url 'classifieds:create_classified' %}">create a classified</a></p>
+      <ul>{% for page in page_list %}
+        <li id={{ page }}><a href="{% url 'classifieds:page' page %}">{{ page }}</a></li>{% endfor %}}
+      </ul>
+    </nav>
+    <main>
+      <p>{{ classified.classified_text }}</p>
+    </main>
+    <aside>
+      <ul>{% for r in region_list %}
+        <li class="sidebar-locale"><a href="{% url 'classifieds:region' r.id %}">{{ r }}</a></li>{% endfor %}
+      </ul>
+    </aside>
+    <footer>
+      <ul>
+        <li><a href="{% url 'classifieds:index' %}">breadlist</a></li>
+        <li><a href="{% url 'classifieds:region' locale.region_id %}">breadlist/{{ locale.region }}</a></li>
+        <li><a href="{% url 'classifieds:province' locale.province_id %}">breadlist/{{ locale.region }}/{{ locale.province }}</a></li>
+        <li><a href="{% url 'classifieds:locale' locale.id %}">breadlist/{{ locale.region }}/{{ locale.province }}/{{ locale }}</a></li>
+        <li><a href="{% url 'classifieds:section' locale.id classified.section %}">breadlist/{{ locale.region }}/{{ locale.province }}/{{ locale }}/{{ classified.section }}</a></li>
+        <li><a href="{% url 'classifieds:subsection' classified.locale_id classified.section classified.subsection %}">breadlist/{{ locale.region }}/{{ locale.province }}/{{ classified.locale }}/{{ classified.section }}/{{ classified.subsection }}</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
